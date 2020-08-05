@@ -56,31 +56,26 @@ var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.
 	ext: 'png'
 }).addTo(myMap);
 
-
-
-$.getJSON("GroceryStoresChicago.geojson",function(data){
+$.getJSON("ChicagoHardshipIndex.geojson", function(data){
 	L.geoJson(data, {
-		pointToLayer: function(feature, latlng) {
-			var groceryColor;
-			var grocerySize = feature.properties.SQUARE_FEET;
-			if ( grocerySize > 41000 ) groceryColor = "red";
-			else if ( grocerySize > 13000 ) groceryColor = "blue";
-			else groceryColor = "yellow";
-			return new L.CircleMarker(latlng,
-				{	radius: 3,
-					fillOpacity: 1,
-					fillColor: 'green',
-					color: groceryColor,
-					weight: .5,
+		style: function(feature) {
+			var conditionalColor,
+			income = feature.properties.PCI;
+				if ( income > 40000) conditionalColor = "#006837";
+				else if ( income > 30000) conditionalColor = "#31a354";
+				else if ( income > 20000) conditionalColor = "#c2e699";
+				else if (income > 0) conditionalColor = "#ffffcc";
+				else conditionalColor = "#f7f7f7";
+				return { color: "#999",
+							weight: 1,
+							fillColor: conditionalColor,
+							fillOpacity: .6 };
+				},
+				onEachFeature: function( feature, layer ){
+					layer.bindPopup( "Community Area: " + feature.properties.CA + "<br/>" + "Per Capits Income:" + feature.properties.PCI)
+				}
+						} ).addTo(myMap);
 				});
-	},
-		onEachFeature: function(feature, layer){
-			layer.bindPopup("<strong>"+ feature.properties.STORE_NAME + "</strong><br/>" + "Community Area :" + feature.properties.COMMUNITY_AREA + "<br/>" + "Square Feet :" + feature.properties.SQUARE_FEET)
-		}
-					
-				}).addTo(myMap);
-
-		});
 
 
 </script>
