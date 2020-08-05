@@ -38,7 +38,7 @@
 
 	<div class ="paragraph">
 	<p>
-		The gap between the rich and the poor has never been more stark. This income inequality problem 
+		The gap between the rich and the poor has never been as wide as it is today. In Chicago, these disparities are very noticeable geographically with high-income residents concentrated in the loop and many community areas north of the loop. Low-income residents, on the other hand, are mostly concentrated in the south and west sides and parts of the far north side of the City.
 	</p>
 	</div>
 
@@ -61,11 +61,11 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 			income = feature.properties.PCI;
 				if ( income > 50000) conditionalColor = "#016c59";
 				else if ( income > 30000) conditionalColor = "#1c9099";
-				else if ( income > 15000) conditionalColor = "#67a9cf";
+				else if ( income > 20000) conditionalColor = "#67a9cf";
 				else if (income > 0) conditionalColor = "#a6bddb";
 				else conditionalColor = "#d0d1e6";
 				return { color: "#f6eff7",
-							weight: 1,
+							weight: 0.5,
 							fillColor: conditionalColor,
 							fillOpacity: 0.9 };
 				},
