@@ -59,8 +59,8 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 		style: function(feature) {
 			var conditionalColor,
 			income = feature.properties.PCI;
-				if ( income >= 50000) conditionalColor = "252525";
-				else if ( income >= 30000 && < 50000) conditionalColor = "636363";
+				if ( income > 50000) conditionalColor = "252525";
+				else if ( income >= 30000 && <= 50000) conditionalColor = "636363";
 				else if ( income >= 15000 && <30000) conditionalColor = "#969696";
 				else if (income > 0 && <15000) conditionalColor = "cccccc";
 				else conditionalColor = "#f7f7f7";
