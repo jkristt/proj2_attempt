@@ -46,7 +46,7 @@
 
 <script>
 
-var myMap = L.map('map').setView([41.876375, -87.649589], 10);
+var myMap = L.map('map').setView([41.876375, -87.649589], 11);
 
 var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
 	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -61,11 +61,11 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 		style: function(feature) {
 			var conditionalColor,
 			income = feature.properties.PCI;
-				if ( income > 50000) conditionalColor = "#016c59";
-				else if ( income > 30000) conditionalColor = "#1c9099";
-				else if ( income > 15000) conditionalColor = "#67a9cf";
-				else if (income > 0) conditionalColor = "bdc9e1";
-				else conditionalColor = "#f6eff7";
+				if ( income > 50000) conditionalColor = "252525";
+				else if ( income > 30000) conditionalColor = "636363";
+				else if ( income > 15000) conditionalColor = "#969696";
+				else if (income > 0) conditionalColor = "cccccc";
+				else conditionalColor = "#f7f7f7";
 				return { color: "#999",
 							weight: 1,
 							fillColor: conditionalColor,
