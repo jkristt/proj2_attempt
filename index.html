@@ -38,7 +38,7 @@
 
 	<div class ="paragraph">
 	<p>
-		The gap between the rich and the poor is 
+		The gap between the rich and the poor has never been more stark. This income inequality problem 
 	</p>
 	</div>
 
@@ -59,10 +59,10 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 		style: function(feature) {
 			var conditionalColor,
 			income = feature.properties.PCI;
-				if ( income > 50000) conditionalColor = "252525";
-				else if ( income > 30000) conditionalColor = "636363";
-				else if ( income > 15000) conditionalColor = "#969696";
-				else if (income > 0) conditionalColor = "cccccc";
+				if ( income >= 50000) conditionalColor = "252525";
+				else if ( income >= 30000 && < 50000) conditionalColor = "636363";
+				else if ( income >= 15000 && <30000) conditionalColor = "#969696";
+				else if (income > 0 && <15000) conditionalColor = "cccccc";
 				else conditionalColor = "#f7f7f7";
 				return { color: "#999",
 							weight: 1,
@@ -70,7 +70,7 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 							fillOpacity: 0.8 };
 				},
 				onEachFeature: function( feature, layer ){
-					layer.bindPopup( "Community Area: " + feature.properties.CA + "<br/>" + "Per Capits Income:" + feature.properties.PCI)
+					layer.bindPopup( "Community Area: " + feature.properties.CA + "<br/>" + "Per Capita Income: " + feature.properties.PCI)
 				}
 						} ).addTo(myMap);
 				});
