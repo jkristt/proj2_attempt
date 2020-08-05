@@ -67,11 +67,11 @@ $.getJSON("GroceryStoresChicago.geojson",function(data){
 			return new L.CircleMarker(latlng,
 				{	radius: groceryRadius,
 					fillOpacity: 1,
-					fillColor: green,
+					fillColor: 'green',
 					color: 'green',
 					weight: .5,
 				});
-		{,
+	},
 		onEachFeature: function(feature, layer){
 			layer.bindPopup("<strong>"+ feature.properties.STORE_NAME + "</strong><br/>" + "Community Area :" + feature.properties.COMMUNITY_AREA + "<br/>" + "Square Feet :" + feature.properties.SQUARE_FEET)
 		}
@@ -82,6 +82,8 @@ $.getJSON("GroceryStoresChicago.geojson",function(data){
 
 
 </script>
+
+</div>
 
 </body>
 
