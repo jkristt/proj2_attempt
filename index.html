@@ -60,10 +60,10 @@ $.getJSON("GroceryStoresChicago.geojson",function(data){
 	L.geoJson(data, {
 		pointToLayer: function(feature, latlng) {
 			var groceryRadius;
-			grocerySize = feature.properties.SQUARE_FEET;
-			if ( grocerySize > 41000 ) groceryRadius = "8";
-			else if ( grocerySize >= 13000 && <= 41000 ) groceryRadius = "5";
-			else groceryRadius = "3";
+			var grocerySize = feature.properties.SQUARE_FEET;
+			if ( grocerySize > 41000 ) groceryRadius = 8;
+			else if ( grocerySize >= 13000 && <= 41000 ) groceryRadius = 5;
+			else groceryRadius = 3;
 			return new L.CircleMarker(latlng,
 				{	radius: groceryRadius,
 					fillOpacity: 1,
