@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BOBA</title>
+<title>CHICAGO</title>
 
 <link href="style.css" rel="stylesheet" type="text/css"
 
@@ -31,14 +31,14 @@
 <body> 
 
 	<div class = "intro">
-	<h1> BOBA </h1>
+	<h1> Income Inequality in Chicago </h1>
 	<h2> __________________________________________ </h2>
-	<h3> Boba within a one-mile radius of CUPPA </h3>
+	<h3> Mapping per capita income in Chicago's 77 community areas </h3>
 	</div>
 
 	<div class ="paragraph">
 	<p>
-		There are five boba shops within a one-mile radius of CUPPA. Not nearly enough if you ask me.
+		The gap between the rich and the poor is 
 	</p>
 	</div>
 
@@ -46,14 +46,14 @@
 
 <script>
 
-var myMap = L.map('map').setView([41.876375, -87.649589], 11);
+var myMap = L.map('map').setView([41.876375, -87.649589], 10);
 
-var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
+var Jawg_Dark = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
+	maxZoom: 22,
+	subdomains: 'abcd',
+	accessToken: '<your accessToken>'
 }).addTo(myMap);
 
 $.getJSON("ChicagoHardshipIndex.geojson", function(data){
