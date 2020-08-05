@@ -69,7 +69,7 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 				return { color: "#999",
 							weight: 1,
 							fillColor: conditionalColor,
-							fillOpacity: .3 };
+							fillOpacity: 0 };
 				},
 				onEachFeature: function( feature, layer ){
 					layer.bindPopup( "Community Area: " + feature.properties.CA + "<br/>" + "Per Capits Income:" + feature.properties.PCI)
