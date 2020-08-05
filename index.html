@@ -66,10 +66,10 @@ $.getJSON("ChicagoHardshipIndex.geojson", function(data){
 				else if ( income > 15000) conditionalColor = "#67a9cf";
 				else if (income > 0) conditionalColor = "bdc9e1";
 				else conditionalColor = "#f6eff7";
-				return { color: "#999",
+				return { color: "white",
 							weight: 1,
 							fillColor: conditionalColor,
-							fillOpacity: 10 };
+							fillOpacity: 7 };
 				},
 				onEachFeature: function( feature, layer ){
 					layer.bindPopup( "Community Area: " + feature.properties.CA + "<br/>" + "Per Capits Income:" + feature.properties.PCI)
