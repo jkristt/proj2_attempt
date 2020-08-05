@@ -76,7 +76,7 @@ $.getJSON("GroceryStoresChicago.geojson",function(data){
 			layer.bindPopup("<strong>"+ feature.properties.STORE_NAME + "</strong><br/>" + "Community Area :" + feature.properties.COMMUNITY_AREA + "<br/>" + "Square Feet :" + feature.properties.SQUARE_FEET)
 		}
 					
-				}).addTo(map);
+				}).addTo(myMap);
 
 		});
 
