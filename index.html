@@ -56,13 +56,15 @@ var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.
 	ext: 'png'
 }).addTo(myMap);
 
+
+
 $.getJSON("GroceryStoresChicago.geojson",function(data){
 	L.geoJson(data, {
 		pointToLayer: function(feature, latlng) {
 			var groceryColor;
 			var grocerySize = feature.properties.SQUARE_FEET;
 			if ( grocerySize > 41000 ) groceryColor = "red";
-			else if ( grocerySize >= 13000 && <= 41000 ) groceryColor = "blue";
+			else if ( grocerySize > 13000 ) groceryColor = "blue";
 			else groceryColor = "yellow";
 			return new L.CircleMarker(latlng,
 				{	radius: 3,
